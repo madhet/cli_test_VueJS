@@ -1,3 +1,14 @@
+VueJS project.
+
+Test - simple page with data fetch from "https://jsonplaceholder.typicode.com"
+
+Users - list of users with additional functionality.
+/server - simple backend for this task.
+
+List - nested list.
+
+
+
 # vue-cli-test
 
 ## Project setup
