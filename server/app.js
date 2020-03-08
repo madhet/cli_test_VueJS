@@ -1,28 +1,35 @@
 const express = require("express");
+const cors = require("cors");
+const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
+
 const app = express();
 
-const bodyParser = require("body-parser");
-
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.use(function(req, res, next) {
-	res.header("Access-Control-Allow-Origin", "*");
-	res.header("Access-Control-Allow-Headers", "*");
-	res.header("Access-Control-Allow-Credentials", true);
-	res.header("Access-Control-Allow-Methods", "*");
+// app.use(function(req, res, next) {
+// 	res.header("Access-Control-Allow-Origin", "*");
+// 	res.header("Access-Control-Allow-Headers", "*");
+// 	res.header("Access-Control-Allow-Credentials", true);
+// 	res.header("Access-Control-Allow-Methods", "*");
 
-	req.header("Access-Control-Allow-Origin", "*");
-	req.header("Access-Control-Allow-Headers", "*");
-	req.header("Access-Control-Allow-Credentials", true);
-	req.header("Access-Control-Allow-Methods", "*");
-	next();
-});
+// 	req.header("Access-Control-Allow-Origin", "*");
+// 	req.header("Access-Control-Allow-Headers", "*");
+// 	req.header("Access-Control-Allow-Credentials", true);
+// 	req.header("Access-Control-Allow-Methods", "*");
+// 	next();
+// });
+
+app.use(cors());
 
 const usersRoutes = require("./api/routes/users");
+const listsRoutes = require("./api/routes/lists");
+const itemsRoutes = require("./api/routes/items");
 
 app.use("/users", usersRoutes);
-
-const mongoose = require("mongoose");
+app.use("/lists", listsRoutes);
+app.use("/items", itemsRoutes);
 
 mongoose.connect(
 	"mongodb://localhost/freeua_test",
