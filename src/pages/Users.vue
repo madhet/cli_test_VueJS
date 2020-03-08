@@ -20,6 +20,10 @@ import UserDetail from '../components/UserDetail'
 
 export default {
 	name: 'users',
+	components: {
+		UserList,
+		UserDetail
+	},
 	props: {
 		editUser: Object
 	},
@@ -37,26 +41,6 @@ export default {
 			}
 			return null;
 		}
-	},
-	methods: {
-		setCurrentUser(id) {
-			// console.log(id)
-			this.currentUserId = id
-		},
-		userDelete(id) {
-			if (id) {
-				if (window.confirm("Delete this user?")) {
-					request(`/users/${id}`, "DELETE").then(() => {
-						this.currentUserId = '';
-						this.users = this.users.filter(item => item._id !== id);
-						});
-				}
-			}
-		}
-	},
-	components: {
-		UserList,
-		UserDetail
 	},
 	mounted() {
 		request("/users")
@@ -79,7 +63,23 @@ export default {
 				this.users = this.users.concat(this.editUser);
 			}
 		}
-	}
+	},
+	methods: {
+		setCurrentUser(id) {
+			// console.log(id)
+			this.currentUserId = id
+		},
+		userDelete(id) {
+			if (id) {
+				if (window.confirm("Delete this user?")) {
+					request(`/users/${id}`, "DELETE").then(() => {
+						this.currentUserId = '';
+						this.users = this.users.filter(item => item._id !== id);
+						});
+				}
+			}
+		}
+	},
 }
 </script>
 

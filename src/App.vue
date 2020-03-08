@@ -2,8 +2,9 @@
 	<div id="app">
 		<nav class='main-menu'>
 			<router-link to="/test">Test</router-link>
-			<router-link to="/users">Users</router-link>
-			<router-link to="/list">List</router-link>
+			<router-link to="/users">Users Backend</router-link>
+			<router-link to="/list-local">Nested List Local</router-link>
+			<router-link to="/list-server">Nested List Backend</router-link>
 		</nav>
 		<keep-alive>
 			<router-view></router-view>
@@ -16,7 +17,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Test from './pages/Test'
 import Users from './pages/Users'
-import List from './pages/List'
+import ListLocal from './pages/ListLocal'
+import ListServer from './pages/ListServer'
 import Edit from './pages/Edit'
 
 Vue.use(VueRouter)
@@ -26,7 +28,8 @@ const routes = [
 	{ path: '/test', component: Test },
 	{ path: '/users', name: 'users', component: Users, props: true },
 	{ path: '/edit', name: 'edit', component: Edit, props: true },
-	{ path: '/list', component: List }
+	{ path: '/list-local', component: ListLocal },
+	{ path: '/list-server', component: ListServer },
 ]
 
 const router = new VueRouter({

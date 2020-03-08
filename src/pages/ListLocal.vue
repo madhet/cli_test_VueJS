@@ -1,12 +1,12 @@
 <template>
-	<MultiList title='Test list'/>
+	<MultiList title='Nested list local'/>
 </template>
 
 <script>
 import MultiList from '../components/MultiList'
 
 export default {
-	name: 'List',
+	name: 'ListLocal',
 	components: {
 		MultiList
 	}
