@@ -2,11 +2,13 @@ VueJS project.
 
 Test - simple page with data fetch from "https://jsonplaceholder.typicode.com"
 
-Users - list of users with additional functionality.
+Users Backend - list of users with additional functionality.
 /server - simple backend for this task.
 
-List - nested list.
+Nested List Local - nested list.
 
+Nested List Backend - nested list with backend realisation. 
+/server - simple backend for this task.
 
 
 # vue-cli-test
