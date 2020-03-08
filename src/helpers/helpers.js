@@ -35,4 +35,13 @@ const calcAge = date => {
 	return age;
 };
 
-export { checkDate, dateToStr, strToDate, calcAge };
+const sortItemsAscending = (a, b) => a.order - b.order;
+
+
+export {
+	checkDate,
+	dateToStr,
+	strToDate,
+	calcAge,
+	sortItemsAscending,
+};
